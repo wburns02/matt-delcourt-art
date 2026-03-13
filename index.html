@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matt Delcourt — Artist</title>
+  <meta name="description" content="The art of Matt Delcourt. Where nature reclaims, art begins. Oil paintings exploring the beauty of life overtaking abandoned spaces.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Favicon: anatomical heart SVG -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1FAC0;</text></svg>">
+</head>
+<body>
+
+  <!-- ============================================= -->
+  <!-- VINES SVG OVERLAY (grows across entire page)  -->
+  <!-- ============================================= -->
+  <svg class="vine-overlay vine-left" viewBox="0 0 120 1200" preserveAspectRatio="none" aria-hidden="true">
+    <path class="vine-path" d="M60,0 C55,80 20,120 30,200 C40,280 70,300 55,400 C40,500 10,520 25,620 C40,720 65,750 50,850 C35,950 15,1000 30,1100 C45,1150 55,1200 60,1200" />
+    <path class="vine-leaf leaf-1" d="M30,180 C10,160 5,140 25,150 C15,170 30,180 30,180Z" />
+    <path class="vine-leaf leaf-2" d="M65,380 C85,360 90,340 70,350 C80,370 65,380 65,380Z" />
+    <path class="vine-leaf leaf-3" d="M20,600 C0,580 -5,560 15,570 C5,590 20,600 20,600Z" />
+    <path class="vine-leaf leaf-4" d="M55,830 C75,810 80,790 60,800 C70,820 55,830 55,830Z" />
+    <path class="vine-leaf leaf-5" d="M25,1080 C5,1060 0,1040 20,1050 C10,1070 25,1080 25,1080Z" />
+  </svg>
+
+  <svg class="vine-overlay vine-right" viewBox="0 0 120 1200" preserveAspectRatio="none" aria-hidden="true">
+    <path class="vine-path" d="M60,0 C65,100 90,150 80,250 C70,350 40,380 55,480 C70,580 95,620 80,720 C65,820 35,860 50,960 C65,1060 85,1100 70,1200" />
+    <path class="vine-leaf leaf-1" d="M85,230 C105,210 110,190 90,200 C100,220 85,230 85,230Z" />
+    <path class="vine-leaf leaf-2" d="M45,460 C25,440 20,420 40,430 C30,450 45,460 45,460Z" />
+    <path class="vine-leaf leaf-3" d="M90,700 C110,680 115,660 95,670 C105,690 90,700 90,700Z" />
+    <path class="vine-leaf leaf-4" d="M40,940 C20,920 15,900 35,910 C25,930 40,940 40,940Z" />
+  </svg>
+
+  <!-- ============================================= -->
+  <!-- SECTION 1: HERO — "The Ruin"                 -->
+  <!-- ============================================= -->
+  <section id="hero" class="hero">
+    <div class="hero-texture"></div>
+    <div class="hero-cracks">
+      <svg viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
+        <path class="crack crack-1" d="M200,0 L210,80 L195,160 L215,240 L200,320" />
+        <path class="crack crack-2" d="M600,0 L590,60 L610,140 L595,200 L605,280 L590,360" />
+        <path class="crack crack-3" d="M400,200 L480,210 L520,195 L600,215" />
+        <path class="crack crack-4" d="M0,400 L80,390 L160,405 L240,395" />
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <!-- Anatomical Heart SVG Logo -->
+      <div class="heart-logo" aria-label="Anatomical heart logo">
+        <svg viewBox="0 0 200 220" class="heart-svg">
+          <defs>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+            <linearGradient id="heartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#c41e6a"/>
+              <stop offset="50%" style="stop-color:#8b1a4a"/>
+              <stop offset="100%" style="stop-color:#5b2d8e"/>
+            </linearGradient>
+          </defs>
+          <!-- Simplified anatomical heart shape -->
+          <path filter="url(#glow)" fill="url(#heartGrad)" d="
+            M100,200
+            C60,170 10,140 10,80
+            C10,40 40,10 70,10
+            C85,10 95,20 100,35
+            C105,20 115,10 130,10
+            C160,10 190,40 190,80
+            C190,140 140,170 100,200Z
+          "/>
+          <!-- Aorta/vessels at top -->
+          <path fill="#8b1a4a" d="M70,15 C65,5 55,-5 60,-15 L65,-15 C62,-5 70,5 75,12Z" transform="translate(0,20)"/>
+          <path fill="#8b1a4a" d="M120,15 C125,5 135,-5 130,-15 L125,-15 C128,-5 120,5 115,12Z" transform="translate(0,20)"/>
+          <!-- Vein details -->
+          <path fill="none" stroke="#6b1040" stroke-width="1.5" opacity="0.6" d="M100,190 C90,160 70,130 50,100"/>
+          <path fill="none" stroke="#6b1040" stroke-width="1.5" opacity="0.6" d="M100,190 C110,155 130,125 150,100"/>
+          <path fill="none" stroke="#6b1040" stroke-width="1" opacity="0.4" d="M80,160 C75,140 60,120 45,105"/>
+        </svg>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="title-line title-line-1">Matt</span>
+        <span class="title-line title-line-2">Delcourt</span>
+      </h1>
+      <p class="hero-tagline">Where nature reclaims, art begins</p>
+
+      <div class="scroll-indicator">
+        <svg viewBox="0 0 30 60" class="scroll-vine" aria-hidden="true">
+          <path class="scroll-vine-path" d="M15,0 C13,10 18,20 15,30 C12,40 17,50 15,60" />
+          <circle class="scroll-dot" cx="15" cy="58" r="3" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SECTION 2: GALLERY — "The Reclamation"       -->
+  <!-- ============================================= -->
+  <section id="gallery" class="gallery">
+    <div class="section-transition moss-creep"></div>
+
+    <div class="gallery-header reveal-up">
+      <h2 class="section-title">The Work</h2>
+      <div class="title-vine"></div>
+    </div>
+
+    <div class="gallery-grid">
+      <!-- Painting 1: Deer skull with medallion -->
+      <article class="painting-card painting-large reveal-up" data-glow="#0d7377">
+        <div class="painting-frame">
+          <img src="images/painting1.jpeg" alt="Deer skull beneath a mystical medallion featuring an anatomical heart wreathed in laurel, surrounded by silhouettes of animals — fox, mermaids, serpent — against deep teal" loading="lazy">
+          <div class="painting-glow"></div>
+        </div>
+        <div class="painting-info">
+          <h3>Cycle of the Sacred</h3>
+          <p>Bone returns to earth, and from the earth, the heart persists.</p>
+        </div>
+      </article>
+
+      <!-- Painting 2: Meditative figure -->
+      <article class="painting-card painting-offset reveal-up" data-glow="#c41e6a" data-delay="200">
+        <div class="painting-frame">
+          <img src="images/painting2.jpeg" alt="A meditative figure seen from behind, an anatomical heart glowing through the skin of the back, with radiating pink and purple sunburst rays" loading="lazy">
+          <div class="painting-glow"></div>
+        </div>
+        <div class="painting-info">
+          <h3>The Seat of Knowing</h3>
+          <p>Stillness reveals what the body has always carried.</p>
+        </div>
+      </article>
+
+      <!-- Painting 3: Heart in hands -->
+      <article class="painting-card painting-large reveal-up" data-glow="#d4842a" data-delay="100">
+        <div class="painting-frame">
+          <img src="images/painting3.jpeg" alt="An anatomical heart offered upward by open hands, radiating crimson and purple light with a golden aura — vulnerability and offering" loading="lazy">
+          <div class="painting-glow"></div>
+        </div>
+        <div class="painting-info">
+          <h3>The Offering</h3>
+          <p>To give the heart is to hold nothing back from the world.</p>
+        </div>
+      </article>
+
+      <!-- Painting 4: Heart and revolvers -->
+      <article class="painting-card painting-offset reveal-up" data-glow="#5b2d8e" data-delay="200">
+        <div class="painting-frame">
+          <img src="images/painting4.jpeg" alt="An anatomical heart ablaze above crossed revolvers dripping with molten gold, against a gradient of hot magenta to deep purple — defiance and passion" loading="lazy">
+          <div class="painting-glow"></div>
+        </div>
+        <div class="painting-info">
+          <h3>Armored & Unguarded</h3>
+          <p>Even among weapons, the heart refuses to harden.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SECTION 3: ABOUT — "The Artist"              -->
+  <!-- ============================================= -->
+  <section id="about" class="about">
+    <div class="section-transition roots-break"></div>
+    <div class="about-inner">
+      <div class="about-text reveal-up">
+        <h2 class="section-title">The Artist</h2>
+        <div class="title-vine"></div>
+        <div class="artist-statement">
+          <p>Matt Delcourt paints what happens after we leave.</p>
+          <p>His work lives in the space between abandonment and renewal — the cracked parking lot split open by a single root, the factory floor softened by decades of moss, the heart that keeps beating long after the body it belonged to has been forgotten.</p>
+          <p>Across every canvas, the anatomical heart returns. Not as symbol, but as fact: the persistent, stubborn core of something alive inside something left behind. Wreathed in laurel or cradled in open hands, set against radiant fields of magenta, teal, and gold, these hearts are not romantic. They are biological. They are proof.</p>
+          <p>Nature doesn't mourn what we abandon. It moves in. It takes root in the cracks, climbs the walls, pulls the ceiling down gently over the course of years. Matt's paintings capture that slow, beautiful violence — the moment the vine wins, the moment the concrete gives, the moment the heart outlasts the ruin.</p>
+          <p class="statement-closing">Based in Texas. Working in oils. Watching the walls come down.</p>
+        </div>
+      </div>
+      <div class="about-visual reveal-up" data-delay="200">
+        <div class="about-image-frame">
+          <img src="images/painting1.jpeg" alt="Detail from Matt Delcourt's work">
+          <div class="frame-overgrowth"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SECTION 4: PHILOSOPHY — "The Vision"         -->
+  <!-- ============================================= -->
+  <section id="vision" class="vision">
+    <div class="vision-bg" style="background-image: url('images/painting3.jpeg')"></div>
+    <div class="vision-overlay"></div>
+    <blockquote class="vision-quote reveal-up">
+      <p>"Every abandoned place is a love letter nature hasn't finished writing."</p>
+      <cite>— Matt Delcourt</cite>
+    </blockquote>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SECTION 5: CONTACT — "Take Root"             -->
+  <!-- ============================================= -->
+  <section id="contact" class="contact">
+    <div class="section-transition full-bloom"></div>
+    <div class="contact-inner reveal-up">
+      <h2 class="section-title">Take Root</h2>
+      <div class="title-vine"></div>
+      <p class="contact-text">Interested in a piece, a commission, or a conversation about the walls coming down? Reach out.</p>
+
+      <div class="contact-links">
+        <a href="mailto:hello@mattdelcourt.com" class="contact-link" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="M22,4 L12,13 L2,4"/>
+          </svg>
+          <span>hello@mattdelcourt.com</span>
+        </a>
+        <a href="https://instagram.com/mattdelcourt" target="_blank" rel="noopener" class="contact-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="5"/>
+            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+          </svg>
+          <span>@mattdelcourt</span>
+        </a>
+      </div>
+
+      <!-- Animated heart at bottom -->
+      <div class="contact-heart" aria-hidden="true">
+        <svg viewBox="0 0 200 220" class="heart-svg heart-beat">
+          <path fill="url(#heartGrad)" filter="url(#glow)" d="
+            M100,200
+            C60,170 10,140 10,80
+            C10,40 40,10 70,10
+            C85,10 95,20 100,35
+            C105,20 115,10 130,10
+            C160,10 190,40 190,80
+            C190,140 140,170 100,200Z
+          "/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- FOOTER                                        -->
+  <!-- ============================================= -->
+  <footer class="site-footer">
+    <p>&copy; 2026 Matt Delcourt. All rights reserved.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
