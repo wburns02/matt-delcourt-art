@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matt Delcourt — Scenes of Reclamation</title>
+  <meta name="description" content="Matt Delcourt's paintings displayed in abandoned spaces reclaimed by nature. An immersive virtual gallery experience.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1FAC0;</text></svg>">
+  <link rel="stylesheet" href="css/scenes.css">
+</head>
+<body>
+
+  <!-- Navigation back to main site -->
+  <nav class="scenes-nav">
+    <a href="index.html" class="nav-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      <span>Back to Gallery</span>
+    </a>
+    <span class="nav-title">Scenes of Reclamation</span>
+  </nav>
+
+  <!-- Scroll progress indicator -->
+  <div class="scroll-progress">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
+  <!-- ============================================= -->
+  <!-- INTRO                                         -->
+  <!-- ============================================= -->
+  <section class="scene-intro">
+    <div class="intro-overlay"></div>
+    <div class="intro-content">
+      <h1>
+        <span class="intro-small">The Art of</span>
+        <span class="intro-name">Matt Delcourt</span>
+        <span class="intro-small">in the spaces that inspired it</span>
+      </h1>
+      <p class="intro-desc">Scroll to walk through abandoned places where nature has taken hold — and where Matt's paintings have found their true home.</p>
+      <div class="scroll-hint">
+        <span>Scroll to enter</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SCENE 1: THE FACTORY — Painting 1             -->
+  <!-- ============================================= -->
+  <section class="scene" id="scene-1">
+    <div class="scene-bg" style="background-image: url('images/scenes/factory.jpg')"></div>
+    <div class="scene-darkness"></div>
+
+    <!-- Vines overlay -->
+    <div class="scene-vines scene-vines-top"></div>
+    <div class="scene-vines scene-vines-left"></div>
+
+    <div class="scene-gallery">
+      <!-- Main painting on the wall -->
+      <div class="wall-painting main-painting" style="--glow-color: #0d7377; --painting-top: 8%; --painting-left: 12%; --painting-width: 28%; --painting-rotate: -1deg;">
+        <div class="painting-wrapper">
+          <div class="frame">
+            <img src="images/painting1.jpeg" alt="Cycle of the Sacred — deer skull beneath mystical medallion">
+          </div>
+          <div class="frame-shadow"></div>
+          <div class="wall-glow"></div>
+        </div>
+      </div>
+
+      <!-- Companion painting (filtered version of painting 3) -->
+      <div class="wall-painting companion-painting" style="--glow-color: #d4842a; --painting-top: 15%; --painting-left: 68%; --painting-width: 16%; --painting-rotate: 1.5deg;">
+        <div class="painting-wrapper">
+          <div class="frame frame-small">
+            <img src="images/painting3.jpeg" alt="The Offering">
+          </div>
+          <div class="frame-shadow"></div>
+          <div class="wall-glow"></div>
+        </div>
+      </div>
+
+      <!-- Small companion (painting 4 detail) -->
+      <div class="wall-painting companion-painting" style="--glow-color: #5b2d8e; --painting-top: 50%; --painting-left: 72%; --painting-width: 12%; --painting-rotate: -0.5deg;">
+        <div class="painting-wrapper">
+          <div class="frame frame-tiny">
+            <img src="images/painting4.jpeg" alt="Armored & Unguarded">
+          </div>
+          <div class="frame-shadow"></div>
+          <div class="wall-glow"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene-caption">
+      <div class="caption-inner reveal">
+        <span class="caption-number">I</span>
+        <h2>The Factory Floor</h2>
+        <p>Vines split the ceiling. Light pours through the breach. On the far wall, a deer skull rests beneath a glowing medallion — proof that the sacred outlasts the industrial.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SCENE 2: THE GYMNASIUM — Painting 4           -->
+  <!-- ============================================= -->
+  <section class="scene" id="scene-2">
+    <div class="scene-bg" style="background-image: url('images/scenes/gymnasium.jpg')"></div>
+    <div class="scene-darkness"></div>
+
+    <div class="scene-vines scene-vines-right"></div>
+
+    <div class="scene-gallery">
+      <!-- Main painting — heart and revolvers -->
+      <div class="wall-painting main-painting" style="--glow-color: #c41e6a; --painting-top: 6%; --painting-left: 30%; --painting-width: 30%; --painting-rotate: 0deg;">
+        <div class="painting-wrapper">
+          <div class="frame">
+            <img src="images/painting4.jpeg" alt="Armored & Unguarded — anatomical heart above crossed revolvers">
+          </div>
+          <div class="frame-shadow"></div>
+          <div class="wall-glow"></div>
+        </div>
+      </div>
+
+      <!-- Companion left -->
+      <div class="wall-painting companion-painting" style="--glow-color: #0d7377; --painting-top: 12%; --painting-left: 5%; --painting-width: 15%; --painting-rotate: -2deg;">
+        <div class="painting-wrapper">
+          <div class="frame frame-small">
+            <img src="images/painting1.jpeg" alt="Cycle of the Sacred">
+          </div>
+          <div class="frame-shadow"></div>
+          <div class="wall-glow"></div>
+        </div>
+      </div>
+
+      <!-- Companion right -->
+      <div class="wall-painting companion-painting" style="--glow-color: #d4842a; --painting-top: 18%; --painting-left: 72%; --painting-width: 14%; --painting-rotate: 1deg;">
+        <div class="painting-wrapper">
+          <div class="frame frame-small">
+            <img src="images/painting2.jpeg" alt="The Seat of Knowing">
+          </div>
+          <div class="frame-shadow"></div>
+          <div class="wall-glow"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene-caption">
+      <div class="caption-inner reveal">
+        <span class="caption-number">II</span>
+        <h2>The Gymnasium</h2>
+        <p>The basketball hoop rusts. The teal paint peels in slow surrender. But here, above the rubble, a heart blazes between crossed revolvers — defiant, unapologetic, alive.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SCENE 3: THE ARCHED ROOM — Painting 3         -->
+  <!-- ============================================= -->
+  <section class="scene" id="scene-3">
+    <div class="scene-bg" style="background-image: url('images/scenes/arched-room.jpg')"></div>
+    <div class="scene-darkness scene-darkness-heavy"></div>
+
+    <div class="scene-vines scene-vines-left"></div>
+    <div class="scene-vines scene-vines-bottom"></div>
+
+    <div class="scene-gallery">
+      <!-- Main painting — heart in hands -->
+      <div class="wall-painting main-painting" style="--glow-color: #d4842a; --painting-top: 5%; --painting-left: 8%; --painting-width: 26%; --painting-rotate: -0.5deg;">
+        <div class="painting-wrapper">
+          <div class="frame">
+            <img src="images/painting3.jpeg" alt="The Offering — anatomical heart held by open hands">
+          </div>
+          <div class="frame-shadow"></div>
+          <div class="wall-glow"></div>
+        </div>
+      </div>
+
+      <!-- Companion on right wall (near window) -->
+      <div class="wall-painting companion-painting" style="--glow-color: #c41e6a; --painting-top: 10%; --painting-left: 60%; --painting-width: 16%; --painting-rotate: 2deg;">
+        <div class="painting-wrapper">
+          <div class="frame frame-small">
+            <img src="images/painting2.jpeg" alt="The Seat of Knowing">
+          </div>
+          <div class="frame-shadow"></div>
+          <div class="wall-glow"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene-caption">
+      <div class="caption-inner reveal">
+        <span class="caption-number">III</span>
+        <h2>The Asylum</h2>
+        <p>An armchair waits for someone who left decades ago. Through arched windows, the outside presses in. On the crumbling wall, two hands offer a heart to the dark — and the dark accepts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SCENE 4: THE ATTIC — Painting 2               -->
+  <!-- ============================================= -->
+  <section class="scene" id="scene-4">
+    <div class="scene-bg" style="background-image: url('images/scenes/attic.jpg')"></div>
+    <div class="scene-darkness"></div>
+
+    <div class="scene-vines scene-vines-right"></div>
+    <div class="scene-vines scene-vines-top"></div>
+
+    <div class="scene-gallery">
+      <!-- Main painting — meditative figure -->
+      <div class="wall-painting main-painting" style="--glow-color: #c41e6a; --painting-top: 4%; --painting-left: 55%; --painting-width: 24%; --painting-rotate: 2deg;">
+        <div class="painting-wrapper">
+          <div class="frame">
+            <img src="images/painting2.jpeg" alt="The Seat of Knowing — meditative figure with glowing heart">
+          </div>
+          <div class="frame-shadow"></div>
+          <div class="wall-glow"></div>
+        </div>
+      </div>
+
+      <!-- Companion left wall -->
+      <div class="wall-painting companion-painting" style="--glow-color: #5b2d8e; --painting-top: 12%; --painting-left: 4%; --painting-width: 18%; --painting-rotate: -3deg;">
+        <div class="painting-wrapper">
+          <div class="frame frame-small">
+            <img src="images/painting4.jpeg" alt="Armored & Unguarded">
+          </div>
+          <div class="frame-shadow"></div>
+          <div class="wall-glow"></div>
+        </div>
+      </div>
+
+      <!-- Companion small -->
+      <div class="wall-painting companion-painting" style="--glow-color: #0d7377; --painting-top: 52%; --painting-left: 8%; --painting-width: 12%; --painting-rotate: -1deg;">
+        <div class="painting-wrapper">
+          <div class="frame frame-tiny">
+            <img src="images/painting1.jpeg" alt="Cycle of the Sacred">
+          </div>
+          <div class="frame-shadow"></div>
+          <div class="wall-glow"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene-caption">
+      <div class="caption-inner reveal">
+        <span class="caption-number">IV</span>
+        <h2>The Attic</h2>
+        <p>A single chair. A single window. Warm light cuts through dust and silence. On the leaning wall, a figure sits in stillness, heart glowing through skin — meditation in a place the world forgot.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SCENE 5: CORNER ROOM — All paintings          -->
+  <!-- ============================================= -->
+  <section class="scene" id="scene-5">
+    <div class="scene-bg" style="background-image: url('images/scenes/corner-room.jpg')"></div>
+    <div class="scene-darkness"></div>
+
+    <div class="scene-vines scene-vines-bottom"></div>
+
+    <div class="scene-gallery">
+      <!-- Painting leaning against wall left -->
+      <div class="wall-painting leaning-painting" style="--glow-color: #0d7377; --painting-top: 40%; --painting-left: 5%; --painting-width: 20%; --painting-rotate: -8deg;">
+        <div class="painting-wrapper">
+          <div class="frame">
+            <img src="images/painting1.jpeg" alt="Cycle of the Sacred">
+          </div>
+          <div class="frame-shadow"></div>
+          <div class="wall-glow"></div>
+        </div>
+      </div>
+
+      <!-- Painting on right wall -->
+      <div class="wall-painting main-painting" style="--glow-color: #c41e6a; --painting-top: 8%; --painting-left: 60%; --painting-width: 22%; --painting-rotate: 1deg;">
+        <div class="painting-wrapper">
+          <div class="frame">
+            <img src="images/painting2.jpeg" alt="The Seat of Knowing">
+          </div>
+          <div class="frame-shadow"></div>
+          <div class="wall-glow"></div>
+        </div>
+      </div>
+
+      <!-- Small painting near window -->
+      <div class="wall-painting companion-painting" style="--glow-color: #d4842a; --painting-top: 20%; --painting-left: 30%; --painting-width: 13%; --painting-rotate: 0deg;">
+        <div class="painting-wrapper">
+          <div class="frame frame-small">
+            <img src="images/painting3.jpeg" alt="The Offering">
+          </div>
+          <div class="frame-shadow"></div>
+          <div class="wall-glow"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene-caption">
+      <div class="caption-inner reveal">
+        <span class="caption-number">V</span>
+        <h2>The Corner Room</h2>
+        <p>Floral wallpaper peels to reveal green paint beneath. Through a broken corner window, the desert watches. Someone left these paintings here — or maybe the paintings chose to stay.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SCENE 6: THE HALL — Salon-style arrangement   -->
+  <!-- ============================================= -->
+  <section class="scene" id="scene-6">
+    <div class="scene-bg" style="background-image: url('images/scenes/hall.jpg')"></div>
+    <div class="scene-darkness scene-darkness-light"></div>
+
+    <div class="scene-gallery salon-gallery">
+      <!-- Salon-style: all 4 paintings arranged between the windows -->
+      <div class="wall-painting main-painting" style="--glow-color: #c41e6a; --painting-top: 20%; --painting-left: 2%; --painting-width: 18%; --painting-rotate: 0deg;">
+        <div class="painting-wrapper">
+          <div class="frame">
+            <img src="images/painting2.jpeg" alt="The Seat of Knowing">
+          </div>
+          <div class="frame-shadow"></div>
+          <div class="wall-glow"></div>
+        </div>
+      </div>
+
+      <div class="wall-painting main-painting" style="--glow-color: #d4842a; --painting-top: 15%; --painting-left: 28%; --painting-width: 18%; --painting-rotate: 0deg;">
+        <div class="painting-wrapper">
+          <div class="frame">
+            <img src="images/painting3.jpeg" alt="The Offering">
+          </div>
+          <div class="frame-shadow"></div>
+          <div class="wall-glow"></div>
+        </div>
+      </div>
+
+      <div class="wall-painting main-painting" style="--glow-color: #5b2d8e; --painting-top: 18%; --painting-left: 54%; --painting-width: 20%; --painting-rotate: 0deg;">
+        <div class="painting-wrapper">
+          <div class="frame">
+            <img src="images/painting4.jpeg" alt="Armored & Unguarded">
+          </div>
+          <div class="frame-shadow"></div>
+          <div class="wall-glow"></div>
+        </div>
+      </div>
+
+      <div class="wall-painting main-painting" style="--glow-color: #0d7377; --painting-top: 22%; --painting-left: 80%; --painting-width: 16%; --painting-rotate: 0deg;">
+        <div class="painting-wrapper">
+          <div class="frame">
+            <img src="images/painting1.jpeg" alt="Cycle of the Sacred">
+          </div>
+          <div class="frame-shadow"></div>
+          <div class="wall-glow"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene-caption">
+      <div class="caption-inner reveal">
+        <span class="caption-number">VI</span>
+        <h2>The Hall</h2>
+        <p>Three tall windows. Dusty curtains. An abandoned institution becomes a gallery — every heart painting catching the grey light, every frame a defiant act of beauty in a place that was supposed to be empty.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SCENE 7: PEELING ROOM — Grand finale          -->
+  <!-- ============================================= -->
+  <section class="scene" id="scene-7">
+    <div class="scene-bg" style="background-image: url('images/scenes/peeling-room.jpg')"></div>
+    <div class="scene-darkness"></div>
+
+    <div class="scene-vines scene-vines-left"></div>
+    <div class="scene-vines scene-vines-right"></div>
+    <div class="scene-vines scene-vines-bottom"></div>
+
+    <div class="scene-gallery">
+      <!-- Central large painting -->
+      <div class="wall-painting main-painting" style="--glow-color: #d4842a; --painting-top: 3%; --painting-left: 55%; --painting-width: 26%; --painting-rotate: 0.5deg;">
+        <div class="painting-wrapper">
+          <div class="frame">
+            <img src="images/painting3.jpeg" alt="The Offering">
+          </div>
+          <div class="frame-shadow"></div>
+          <div class="wall-glow"></div>
+        </div>
+      </div>
+
+      <!-- Left wall -->
+      <div class="wall-painting companion-painting" style="--glow-color: #0d7377; --painting-top: 8%; --painting-left: 3%; --painting-width: 22%; --painting-rotate: -2deg;">
+        <div class="painting-wrapper">
+          <div class="frame frame-small">
+            <img src="images/painting1.jpeg" alt="Cycle of the Sacred">
+          </div>
+          <div class="frame-shadow"></div>
+          <div class="wall-glow"></div>
+        </div>
+      </div>
+
+      <!-- Leaning against baseboard -->
+      <div class="wall-painting leaning-painting" style="--glow-color: #5b2d8e; --painting-top: 55%; --painting-left: 65%; --painting-width: 16%; --painting-rotate: 5deg;">
+        <div class="painting-wrapper">
+          <div class="frame">
+            <img src="images/painting4.jpeg" alt="Armored & Unguarded">
+          </div>
+          <div class="frame-shadow"></div>
+          <div class="wall-glow"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene-caption">
+      <div class="caption-inner reveal">
+        <span class="caption-number">VII</span>
+        <h2>The Last Room</h2>
+        <p>The floor has given way. The ceiling sags. But here — on the wall, leaning against the baseboard, catching dust and light alike — the hearts remain. They were always going to outlast the building.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- OUTRO                                         -->
+  <!-- ============================================= -->
+  <section class="scene-outro">
+    <div class="outro-content reveal">
+      <svg viewBox="0 0 200 220" class="outro-heart" aria-hidden="true">
+        <defs>
+          <linearGradient id="heartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#c41e6a"/>
+            <stop offset="50%" style="stop-color:#8b1a4a"/>
+            <stop offset="100%" style="stop-color:#5b2d8e"/>
+          </linearGradient>
+        </defs>
+        <path fill="url(#heartGrad)" d="M100,200 C60,170 10,140 10,80 C10,40 40,10 70,10 C85,10 95,20 100,35 C105,20 115,10 130,10 C160,10 190,40 190,80 C190,140 140,170 100,200Z"/>
+      </svg>
+      <h2>The heart outlasts the ruin.</h2>
+      <p class="outro-artist">Matt Delcourt</p>
+      <div class="outro-links">
+        <a href="index.html" class="outro-link">View the Gallery</a>
+        <a href="index.html#contact" class="outro-link">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/scenes.js"></script>
+</body>
+</html>

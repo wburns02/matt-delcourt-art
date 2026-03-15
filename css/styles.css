@@ -534,6 +534,66 @@ body::before {
 }
 
 /* ============================================= */
+/* SCENES CTA LINK                               */
+/* ============================================= */
+.gallery-cta {
+  text-align: center;
+  margin-top: 4rem;
+  padding-top: 2rem;
+}
+
+.scenes-link {
+  display: inline-block;
+  padding: 1.2rem 2.5rem;
+  border: 1px solid #ffffff15;
+  border-radius: 4px;
+  text-decoration: none;
+  background: linear-gradient(135deg, #0d737710 0%, #c41e6a10 100%);
+  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.scenes-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0d737730 0%, #c41e6a30 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.scenes-link:hover::before {
+  opacity: 1;
+}
+
+.scenes-link:hover {
+  border-color: var(--teal);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px #0d737730;
+}
+
+.scenes-link-text {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  position: relative;
+  z-index: 1;
+}
+
+.scenes-link-sub {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-top: 0.3rem;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================= */
 /* SECTION 3: ABOUT                              */
 /* ============================================= */
 .about {

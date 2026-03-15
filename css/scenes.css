@@ -1,0 +1,622 @@
+/* ============================================= */
+/* SCENES PAGE — Immersive Gallery               */
+/* ============================================= */
+:root {
+  --bg-dark: #0a0a0a;
+  --text: #e8e0d4;
+  --text-dim: #a89e92;
+  --teal: #0d7377;
+  --magenta: #c41e6a;
+  --purple: #5b2d8e;
+  --gold: #d4842a;
+  --moss: #2d5a27;
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  scroll-snap-type: y proximity;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-dark);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================= */
+/* NAVIGATION                                    */
+/* ============================================= */
+.scenes-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: linear-gradient(180deg, #0a0a0ae0 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.nav-back {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  transition: color 0.3s;
+  pointer-events: auto;
+}
+
+.nav-back:hover {
+  color: var(--text);
+}
+
+.nav-title {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  opacity: 0.6;
+}
+
+/* ============================================= */
+/* SCROLL PROGRESS                               */
+/* ============================================= */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 1001;
+  background: transparent;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--teal), var(--magenta), var(--purple), var(--gold));
+  transition: width 0.1s;
+}
+
+/* ============================================= */
+/* INTRO SECTION                                 */
+/* ============================================= */
+.scene-intro {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-dark);
+  scroll-snap-align: start;
+}
+
+.intro-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 60%, #0d737710 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 40%, #c41e6a08 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, #1a1a1a 0%, var(--bg-dark) 100%);
+}
+
+.intro-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+  max-width: 700px;
+  animation: fade-in 1.5s ease-out;
+}
+
+.intro-small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 0.3rem;
+}
+
+.intro-name {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0.5rem 0;
+  background: linear-gradient(135deg, var(--text) 0%, var(--gold) 50%, var(--text) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.intro-desc {
+  font-size: 1rem;
+  color: var(--text-dim);
+  line-height: 1.8;
+  margin: 2rem 0;
+}
+
+.scroll-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  opacity: 0.5;
+  animation: scroll-pulse 2s ease-in-out infinite;
+}
+
+@keyframes scroll-pulse {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(8px); opacity: 0.8; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================= */
+/* SCENE SECTIONS                                */
+/* ============================================= */
+.scene {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+/* Background photo */
+.scene-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+/* Darkness overlay to set mood and improve painting contrast */
+.scene-darkness {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, transparent 20%, #0a0a0a80 100%),
+    linear-gradient(180deg, #0a0a0a30 0%, #0a0a0a20 50%, #0a0a0a60 100%);
+  z-index: 2;
+}
+
+.scene-darkness-heavy {
+  background:
+    radial-gradient(ellipse at center, transparent 10%, #0a0a0aa0 100%),
+    linear-gradient(180deg, #0a0a0a50 0%, #0a0a0a30 50%, #0a0a0a70 100%);
+}
+
+.scene-darkness-light {
+  background:
+    radial-gradient(ellipse at center, transparent 30%, #0a0a0a60 100%),
+    linear-gradient(180deg, #0a0a0a20 0%, #0a0a0a10 50%, #0a0a0a40 100%);
+}
+
+/* ============================================= */
+/* VINE OVERLAYS ON SCENES                       */
+/* ============================================= */
+.scene-vines {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.scene-vines-top {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background:
+    radial-gradient(ellipse at 20% 0%, #2d5a2740 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 0%, #1a3a1830 0%, transparent 40%),
+    radial-gradient(ellipse at 85% 0%, #2d5a2735 0%, transparent 45%);
+}
+
+.scene-vines-left {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100px;
+  background:
+    radial-gradient(ellipse at 0% 30%, #2d5a2750 0%, transparent 60%),
+    radial-gradient(ellipse at 0% 70%, #1a3a1840 0%, transparent 50%);
+}
+
+.scene-vines-right {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100px;
+  background:
+    radial-gradient(ellipse at 100% 30%, #2d5a2750 0%, transparent 60%),
+    radial-gradient(ellipse at 100% 70%, #1a3a1840 0%, transparent 50%);
+}
+
+.scene-vines-bottom {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background:
+    radial-gradient(ellipse at 30% 100%, #2d5a2760 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 100%, #1a3a1850 0%, transparent 45%),
+    linear-gradient(0deg, #0a0a0a80 0%, transparent 60%);
+}
+
+/* ============================================= */
+/* PAINTINGS ON WALLS                            */
+/* ============================================= */
+.scene-gallery {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.wall-painting {
+  position: absolute;
+  top: var(--painting-top, 10%);
+  left: var(--painting-left, 10%);
+  width: var(--painting-width, 25%);
+  transform: rotate(var(--painting-rotate, 0deg));
+  pointer-events: auto;
+  opacity: 0;
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.wall-painting.visible {
+  opacity: 1;
+}
+
+.main-painting.visible {
+  animation: painting-arrive 1.5s ease-out forwards;
+}
+
+.companion-painting.visible {
+  animation: painting-arrive-subtle 1.8s ease-out forwards;
+}
+
+.leaning-painting {
+  transform-origin: bottom center;
+}
+
+@keyframes painting-arrive {
+  from {
+    opacity: 0;
+    transform: rotate(var(--painting-rotate, 0deg)) scale(0.9);
+    filter: brightness(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(var(--painting-rotate, 0deg)) scale(1);
+    filter: brightness(1);
+  }
+}
+
+@keyframes painting-arrive-subtle {
+  from {
+    opacity: 0;
+    filter: brightness(0.2);
+  }
+  to {
+    opacity: 0.9;
+    filter: brightness(0.85);
+  }
+}
+
+/* Frame styling */
+.frame {
+  position: relative;
+  border: 6px solid #1a1410;
+  box-shadow:
+    inset 0 0 0 2px #2a2218,
+    inset 0 0 0 4px #1a1410,
+    0 4px 20px rgba(0,0,0,0.6);
+  background: #1a1410;
+  overflow: hidden;
+}
+
+.frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.frame-small {
+  border-width: 4px;
+}
+
+.frame-tiny {
+  border-width: 3px;
+}
+
+/* Shadow beneath frame (as if cast on wall) */
+.frame-shadow {
+  position: absolute;
+  bottom: -15px;
+  left: 5%;
+  right: 5%;
+  height: 20px;
+  background: radial-gradient(ellipse, rgba(0,0,0,0.5) 0%, transparent 70%);
+  filter: blur(8px);
+}
+
+/* Glow effect — painting illuminates the surrounding wall */
+.wall-glow {
+  position: absolute;
+  inset: -40%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, var(--glow-color, #ffffff20) 0%, transparent 70%);
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+  transition: opacity 2s ease;
+}
+
+.wall-painting.visible .wall-glow {
+  opacity: 0.35;
+  animation: glow-pulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes glow-pulse {
+  from { opacity: 0.25; }
+  to { opacity: 0.45; }
+}
+
+/* Hover effect on paintings */
+.wall-painting:hover .frame {
+  box-shadow:
+    inset 0 0 0 2px #2a2218,
+    inset 0 0 0 4px #1a1410,
+    0 8px 40px rgba(0,0,0,0.8),
+    0 0 30px var(--glow-color);
+  transition: box-shadow 0.4s ease;
+}
+
+.wall-painting:hover .wall-glow {
+  opacity: 0.6;
+}
+
+/* ============================================= */
+/* SCENE CAPTIONS                                */
+/* ============================================= */
+.scene-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: 2rem 3rem 3rem;
+  background: linear-gradient(0deg, #0a0a0ae0 0%, #0a0a0aa0 50%, transparent 100%);
+}
+
+.caption-inner {
+  max-width: 600px;
+}
+
+.caption-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  opacity: 0.7;
+}
+
+.scene-caption h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: var(--text);
+}
+
+.scene-caption p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-dim);
+  max-width: 500px;
+}
+
+/* ============================================= */
+/* REVEAL ANIMATION                              */
+/* ============================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================= */
+/* OUTRO                                         */
+/* ============================================= */
+.scene-outro {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-dark);
+  scroll-snap-align: start;
+}
+
+.outro-content {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.outro-heart {
+  width: 80px;
+  height: 90px;
+  margin: 0 auto 2rem;
+  filter: drop-shadow(0 0 20px #c41e6a40);
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.08); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.05); }
+  60% { transform: scale(1); }
+}
+
+.outro-content h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 700;
+  font-style: italic;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--text) 0%, var(--gold) 50%, var(--text) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.outro-artist {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  margin-bottom: 2.5rem;
+}
+
+.outro-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.outro-link {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border: 1px solid #ffffff20;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.outro-link:hover {
+  border-color: var(--teal);
+  background: #0d737715;
+  transform: translateY(-2px);
+}
+
+/* ============================================= */
+/* RESPONSIVE                                    */
+/* ============================================= */
+@media (max-width: 768px) {
+  .scene-caption {
+    padding: 1.5rem 1.5rem 2rem;
+  }
+
+  .scene-caption h2 {
+    font-size: 1.4rem;
+  }
+
+  .scenes-nav {
+    padding: 0.8rem 1rem;
+  }
+
+  .nav-title {
+    display: none;
+  }
+
+  /* Scale paintings up a bit on mobile so they're visible */
+  .wall-painting {
+    transform: rotate(var(--painting-rotate, 0deg)) scale(1.2);
+  }
+
+  .scene-vines-left,
+  .scene-vines-right {
+    width: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wall-painting {
+    transform: rotate(var(--painting-rotate, 0deg)) scale(1.4);
+  }
+
+  .companion-painting {
+    display: none;
+  }
+}
+
+/* ============================================= */
+/* SCROLLBAR & SELECTION                         */
+/* ============================================= */
+::selection {
+  background: var(--magenta);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #333 var(--bg-dark);
+}
+
+/* Page load animation */
+body {
+  animation: page-load 0.8s ease-out;
+}
+
+@keyframes page-load {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
