@@ -100,6 +100,9 @@
     }
   }
 
+  // Expose for easter eggs
+  window.__burstParticles = burstParticles;
+
   function updateParticles() {
     if (!particleCtx) return;
 

@@ -73,6 +73,24 @@
     };
   }
 
+  function burstParticles(count) {
+    var cx = window.innerWidth / 2;
+    var cy = window.innerHeight / 2;
+    for (var i = 0; i < count; i++) {
+      var p = spawnParticle(false);
+      p.x = cx + (Math.random() - 0.5) * 300;
+      p.y = cy + (Math.random() - 0.5) * 300;
+      p.speedY = -(0.5 + Math.random() * 1.5);
+      p.speedX = (Math.random() - 0.5) * 1.5;
+      p.size = 1.5 + Math.random() * 2.5;
+      p.alpha = 0.4 + Math.random() * 0.5;
+      particles.push(p);
+    }
+  }
+
+  // Expose for easter eggs
+  window.__burstParticles = burstParticles;
+
   function updateParticles() {
     if (!particleCtx) return;
 
