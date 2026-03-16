@@ -4,15 +4,85 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Matt Delcourt — Artist</title>
-  <meta name="description" content="The art of Matt Delcourt. Where nature reclaims, art begins. Oil paintings exploring the beauty of life overtaking abandoned spaces.">
+  <meta name="description" content="The art of Matt Delcourt. Where nature reclaims, art begins. Acrylic paintings exploring the beauty of life overtaking abandoned spaces.">
+
+  <!-- Open Graph / Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Matt Delcourt — Artist">
+  <meta property="og:description" content="Where nature reclaims, art begins. Acrylic paintings of anatomical hearts in abandoned spaces.">
+  <meta property="og:image" content="https://wburns02.github.io/matt-delcourt-art/images/painting4.jpeg">
+  <meta property="og:url" content="https://wburns02.github.io/matt-delcourt-art/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Matt Delcourt — Artist">
+  <meta name="twitter:description" content="Where nature reclaims, art begins. Acrylic paintings of anatomical hearts in abandoned spaces.">
+  <meta name="twitter:image" content="https://wburns02.github.io/matt-delcourt-art/images/painting4.jpeg">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <!-- Favicon: anatomical heart SVG -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1FAC0;</text></svg>">
+  <noscript><style>.loading-screen{display:none}body.loading{overflow:auto}</style></noscript>
 </head>
-<body>
+<body class="loading">
+
+  <!-- ============================================= -->
+  <!-- LOADING SCREEN — Heart Beats to Life          -->
+  <!-- ============================================= -->
+  <div class="loading-screen" id="loading-screen">
+    <div class="loading-heart-wrapper">
+      <svg viewBox="0 0 200 220" class="loading-heart">
+        <defs>
+          <linearGradient id="loadGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#c41e6a"/>
+            <stop offset="50%" style="stop-color:#8b1a4a"/>
+            <stop offset="100%" style="stop-color:#5b2d8e"/>
+          </linearGradient>
+          <filter id="loadGlow">
+            <feGaussianBlur stdDeviation="6" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <path class="loading-heart-outline" fill="none" stroke="#c41e6a" stroke-width="1.5" d="M100,200 C60,170 10,140 10,80 C10,40 40,10 70,10 C85,10 95,20 100,35 C105,20 115,10 130,10 C160,10 190,40 190,80 C190,140 140,170 100,200Z"/>
+        <path class="loading-heart-fill" filter="url(#loadGlow)" fill="url(#loadGrad)" d="M100,200 C60,170 10,140 10,80 C10,40 40,10 70,10 C85,10 95,20 100,35 C105,20 115,10 130,10 C160,10 190,40 190,80 C190,140 140,170 100,200Z"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ============================================= -->
+  <!-- FILM GRAIN (SVG noise filter)                 -->
+  <!-- ============================================= -->
+  <svg style="position:absolute;width:0;height:0" aria-hidden="true">
+    <filter id="grain-filter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch" id="grain-seed"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </svg>
+  <div class="film-grain" style="filter:url(#grain-filter)"></div>
+
+  <!-- ============================================= -->
+  <!-- CANVAS OVERLAYS                               -->
+  <!-- ============================================= -->
+  <canvas id="particle-canvas" class="canvas-overlay particle-canvas"></canvas>
+  <canvas id="cursor-canvas" class="canvas-overlay cursor-canvas"></canvas>
+
+  <!-- ============================================= -->
+  <!-- LIGHTBOX MODAL                                -->
+  <!-- ============================================= -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous painting">&#8249;</button>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next painting">&#8250;</button>
+    <div class="lightbox-content" id="lightbox-content">
+      <img class="lightbox-img" id="lightbox-img" src="" alt="">
+      <div class="lightbox-info">
+        <h3 class="lightbox-title" id="lightbox-title"></h3>
+        <p class="lightbox-desc" id="lightbox-desc"></p>
+        <a class="lightbox-inquire" id="lightbox-inquire" href="">Inquire About This Piece</a>
+      </div>
+    </div>
+  </div>
 
   <!-- ============================================= -->
   <!-- VINES SVG OVERLAY (grows across entire page)  -->
@@ -66,7 +136,6 @@
               <stop offset="100%" style="stop-color:#5b2d8e"/>
             </linearGradient>
           </defs>
-          <!-- Simplified anatomical heart shape -->
           <path filter="url(#glow)" fill="url(#heartGrad)" d="
             M100,200
             C60,170 10,140 10,80
@@ -76,10 +145,8 @@
             C160,10 190,40 190,80
             C190,140 140,170 100,200Z
           "/>
-          <!-- Aorta/vessels at top -->
           <path fill="#8b1a4a" d="M70,15 C65,5 55,-5 60,-15 L65,-15 C62,-5 70,5 75,12Z" transform="translate(0,20)"/>
           <path fill="#8b1a4a" d="M120,15 C125,5 135,-5 130,-15 L125,-15 C128,-5 120,5 115,12Z" transform="translate(0,20)"/>
-          <!-- Vein details -->
           <path fill="none" stroke="#6b1040" stroke-width="1.5" opacity="0.6" d="M100,190 C90,160 70,130 50,100"/>
           <path fill="none" stroke="#6b1040" stroke-width="1.5" opacity="0.6" d="M100,190 C110,155 130,125 150,100"/>
           <path fill="none" stroke="#6b1040" stroke-width="1" opacity="0.4" d="M80,160 C75,140 60,120 45,105"/>
@@ -114,7 +181,7 @@
 
     <div class="gallery-grid">
       <!-- Painting 1: Deer skull with medallion -->
-      <article class="painting-card painting-large reveal-up" data-glow="#0d7377">
+      <article class="painting-card painting-large reveal-up" data-glow="#0d7377" data-painting="0">
         <div class="painting-frame">
           <img src="images/painting1.jpeg" alt="Deer skull beneath a mystical medallion featuring an anatomical heart wreathed in laurel, surrounded by silhouettes of animals — fox, mermaids, serpent — against deep teal" loading="lazy">
           <div class="painting-glow"></div>
@@ -122,11 +189,12 @@
         <div class="painting-info">
           <h3>Cycle of the Sacred</h3>
           <p>Bone returns to earth, and from the earth, the heart persists.</p>
+          <a href="mailto:hello@mattdelcourt.com?subject=Inquiry%3A%20Cycle%20of%20the%20Sacred" class="inquire-btn">Inquire About This Piece</a>
         </div>
       </article>
 
       <!-- Painting 2: Meditative figure -->
-      <article class="painting-card painting-offset reveal-up" data-glow="#c41e6a" data-delay="200">
+      <article class="painting-card painting-offset reveal-up" data-glow="#c41e6a" data-delay="200" data-painting="1">
         <div class="painting-frame">
           <img src="images/painting2.jpeg" alt="A meditative figure seen from behind, an anatomical heart glowing through the skin of the back, with radiating pink and purple sunburst rays" loading="lazy">
           <div class="painting-glow"></div>
@@ -134,11 +202,12 @@
         <div class="painting-info">
           <h3>The Seat of Knowing</h3>
           <p>Stillness reveals what the body has always carried.</p>
+          <a href="mailto:hello@mattdelcourt.com?subject=Inquiry%3A%20The%20Seat%20of%20Knowing" class="inquire-btn">Inquire About This Piece</a>
         </div>
       </article>
 
       <!-- Painting 3: Heart in hands -->
-      <article class="painting-card painting-large reveal-up" data-glow="#d4842a" data-delay="100">
+      <article class="painting-card painting-large reveal-up" data-glow="#d4842a" data-delay="100" data-painting="2">
         <div class="painting-frame">
           <img src="images/painting3.jpeg" alt="An anatomical heart offered upward by open hands, radiating crimson and purple light with a golden aura — vulnerability and offering" loading="lazy">
           <div class="painting-glow"></div>
@@ -146,11 +215,12 @@
         <div class="painting-info">
           <h3>The Offering</h3>
           <p>To give the heart is to hold nothing back from the world.</p>
+          <a href="mailto:hello@mattdelcourt.com?subject=Inquiry%3A%20The%20Offering" class="inquire-btn">Inquire About This Piece</a>
         </div>
       </article>
 
       <!-- Painting 4: Heart and revolvers -->
-      <article class="painting-card painting-offset reveal-up" data-glow="#5b2d8e" data-delay="200">
+      <article class="painting-card painting-offset reveal-up" data-glow="#5b2d8e" data-delay="200" data-painting="3">
         <div class="painting-frame">
           <img src="images/painting4.jpeg" alt="An anatomical heart ablaze above crossed revolvers dripping with molten gold, against a gradient of hot magenta to deep purple — defiance and passion" loading="lazy">
           <div class="painting-glow"></div>
@@ -158,6 +228,7 @@
         <div class="painting-info">
           <h3>Armored & Unguarded</h3>
           <p>Even among weapons, the heart refuses to harden.</p>
+          <a href="mailto:hello@mattdelcourt.com?subject=Inquiry%3A%20Armored%20%26%20Unguarded" class="inquire-btn">Inquire About This Piece</a>
         </div>
       </article>
     </div>
